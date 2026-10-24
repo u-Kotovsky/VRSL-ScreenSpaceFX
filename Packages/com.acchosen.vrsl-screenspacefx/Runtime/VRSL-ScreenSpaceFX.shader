@@ -480,5 +480,5 @@
             ENDCG
         }
     }
-    CustomEditor "VRSL_ScreenSpaceFX_Editor"
+    CustomEditor "VRSL.ScreenSpaceFX.Editor.VRSL_ScreenSpaceFX_Editor"
 }

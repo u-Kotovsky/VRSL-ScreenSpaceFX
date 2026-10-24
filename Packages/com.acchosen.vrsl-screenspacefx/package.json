@@ -1,0 +1,21 @@
+{
+  "name": "com.acchosen.vrsl-screenspacefx",
+  "displayName": "VRSL ScreenSpaceFX",
+  "version": "1.2.0",
+  "description": "",
+  "author": {
+    "name": "AcChosen",
+    "url": "https://github.com/AcChosen"
+  },
+  "gitDependencies": {},
+  "vpmDependencies": {
+    "com.llealloo.audiolink": ">=0.3.1"
+  },
+  "legacyFolders": {
+    "Assets\\VRSL Addons\\VRSL-ScreenSpaceFX": ""
+  },
+  "legacyFiles": {},
+  "hideInEditor": false,
+  "license": "MIT",
+  "unity": "2019.4"
+}
