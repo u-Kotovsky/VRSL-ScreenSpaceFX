@@ -1,3 +1,4 @@
+#if !COMPILER_UDONSHARP && UNITY_EDITOR
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
@@ -46,7 +47,6 @@ namespace VRSL.ScreenSpaceFX.Editor
         }
     }
 
-
     public class VRSL_ScreenSpaceFX_Editor : ShaderGUI
     {
         BindingFlags bindingFlags = BindingFlags.Public |
@@ -61,7 +61,6 @@ namespace VRSL.ScreenSpaceFX.Editor
 
         MaterialProperty _EnableCompatibilityMode = null;
 
-        //MaterialProperty _Udon_Udon_Udon_Udon_DMXGridRenderTexture = null;
         MaterialProperty _SOBEL_ON = null;
         MaterialProperty _DMXChannelSobel = null;
         MaterialProperty _Factor = null;
@@ -398,7 +397,7 @@ namespace VRSL.ScreenSpaceFX.Editor
                 materialEditor.ShaderProperty(_EnableCompatibilityMode, "Enable Compatibility Mode");
                 VRSLStyles.PartingLine();
                 GUILayout.Space(10);
-
+                
                 GUI.backgroundColor = foldoutColor;
                 EditorGUILayout.BeginHorizontal();
                 Rect rect = GUILayoutUtility.GetRect(new GUIContent("Sobel Outline"), FoldOutLabel());
@@ -407,7 +406,7 @@ namespace VRSL.ScreenSpaceFX.Editor
                 showOutlineSettings =
                     EditorGUI.BeginFoldoutHeaderGroup(rect, showOutlineSettings, "Sobel Outline", FoldOutLabel());
                 materialEditor.ShaderProperty(_SOBEL_ON, "");
-                SetKeyword(material, "_SOBEL_ON", (Mathf.FloorToInt(material.GetInt("_SOBEL_ON"))) == 1 ? true : false);
+                SetKeyword(material, "_SOBEL_ON", (Mathf.FloorToInt(material.GetInt("_SOBEL_ON"))) == 1);
 
                 EditorGUILayout.EndHorizontal();
                 GUI.backgroundColor = originalBackground;
@@ -485,7 +484,7 @@ namespace VRSL.ScreenSpaceFX.Editor
                     EditorGUI.BeginFoldoutHeaderGroup(rect, showFilterSettings, "Filters", FoldOutLabel());
                 materialEditor.ShaderProperty(_FILTERS_ON, "");
                 SetKeyword(material, "_FILTERS_ON",
-                    (Mathf.FloorToInt(material.GetInt("_FILTERS_ON"))) == 1 ? true : false);
+                    (Mathf.FloorToInt(material.GetInt("_FILTERS_ON"))) == 1);
 
                 EditorGUILayout.EndHorizontal();
                 GUI.backgroundColor = originalBackground;
@@ -541,7 +540,7 @@ namespace VRSL.ScreenSpaceFX.Editor
                     "Chromatic Aberration", FoldOutLabel());
                 materialEditor.ShaderProperty(_CHROMATIC_ON, "");
                 SetKeyword(material, "_CHROMATIC_ON",
-                    (Mathf.FloorToInt(material.GetInt("_CHROMATIC_ON"))) == 1 ? true : false);
+                    (Mathf.FloorToInt(material.GetInt("_CHROMATIC_ON"))) == 1);
 
                 EditorGUILayout.EndHorizontal();
                 GUI.backgroundColor = originalBackground;
@@ -583,7 +582,7 @@ namespace VRSL.ScreenSpaceFX.Editor
                 showShakeSettings =
                     EditorGUI.BeginFoldoutHeaderGroup(rect, showShakeSettings, "Screen Shake", FoldOutLabel());
                 materialEditor.ShaderProperty(_SHAKE_ON, "");
-                SetKeyword(material, "_SHAKE_ON", (Mathf.FloorToInt(material.GetInt("_SHAKE_ON"))) == 1 ? true : false);
+                SetKeyword(material, "_SHAKE_ON", (Mathf.FloorToInt(material.GetInt("_SHAKE_ON"))) == 1);
 
                 EditorGUILayout.EndHorizontal();
                 GUI.backgroundColor = originalBackground;
@@ -636,7 +635,7 @@ namespace VRSL.ScreenSpaceFX.Editor
                     "Texture Scroll/Overlay", FoldOutLabel());
                 materialEditor.ShaderProperty(_TEXTURESCROLL_ON, "");
                 SetKeyword(material, "_TEXTURESCROLL_ON",
-                    (Mathf.FloorToInt(material.GetInt("_TEXTURESCROLL_ON"))) == 1 ? true : false);
+                    (Mathf.FloorToInt(material.GetInt("_TEXTURESCROLL_ON"))) == 1);
 
                 EditorGUILayout.EndHorizontal();
                 GUI.backgroundColor = originalBackground;
@@ -730,3 +729,4 @@ namespace VRSL.ScreenSpaceFX.Editor
         }
     }
 }
+#endif
